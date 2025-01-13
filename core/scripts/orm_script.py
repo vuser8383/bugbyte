@@ -3,12 +3,43 @@ from django.utils import timezone
 from django.db import connection
 from django.contrib.auth.models import User
 from pprint import pprint
+from django.db.models.functions import Lower
 
 
 def run():
   pass
+  # foreign key lookup
+  # print(Rating.objects.filter(restaurant__name__startswith='P'))
+  print(Sale.objects.filter(restaurant__restaurant_type=Restaurant.TypeChoices.CHINESE))
+  print(connection.queries)
+
+  # print(Restaurant.objects.earliest('date_opened'))
+  # print(Restaurant.objects.latest())
+  # print(Restaurant.objects.order_by(Lower('name')))
+
+  # print(Restaurant.objects.order_by('-name'))
+  # print(Restaurant.objects.order_by('name').reverse())
+
+  # sales = Sale.objects.filter(income__range=(50, 60))
+  # print([sale.income for sale in sales])
+
+  # for restaurant in Restaurant.objects.all():
+  #   print (restaurant.restaurant_type)
+
+  # chinese = Restaurant.TypeChoices.CHINESE
+  # indian = Restaurant.TypeChoices.INDIAN
+  # mexican = Restaurant.TypeChoices.MEXICAN
+
+  # print(Restaurant.objects.exclude(restaurant_type__in=[chinese, indian, mexican]))
+  # print(Restaurant.objects.filter(restaurant_type__in=[chinese, indian, mexican]))
+  # print(Restaurant.objects.filter(restaurant_type = Restaurant.TypeChoices.CHINESE, name__startswith="C"))
+  # print(Restaurant.objects.filter(restaurant_type=Restaurant.TypeChoices.CHINESE))
+  # print(Restaurant.objects.count())
+  # print(Rating.objects.count())
+  # print(Sale.objects.count())
+
   # deleting multiple objects
-  Restaurant.objects.all().delete()
+  # Restaurant.objects.all().delete()
   
   # update multiple objects
   # restaurant = Restaurant.objects.filter(name__istartswith='p')
