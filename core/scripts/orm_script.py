@@ -7,14 +7,43 @@ from pprint import pprint
 
 def run():
   pass
+  # deleting multiple objects
+  Restaurant.objects.all().delete()
   
+  # update multiple objects
+  # restaurant = Restaurant.objects.filter(name__istartswith='p')
+  # print(restaurant)
+  # restaurant.update(
+  #   date_opened = timezone.now() - timezone.timedelta(days=365),
+  #   website = "https://www.test.com"
+  # )
+
+  # restaurant = Restaurant()
+  # restaurant.name = "My italian restaurant 2"
+  # restaurant.latitude = 50.2
+  # restaurant.longitude = 50.2
+  # restaurant.date_opened = timezone.now()
+  # restaurant.restaurant_type = Restaurant.TypeChoices.ITALIAN
+
+  # restaurant.save()
+
+
+  # restaurant = Restaurant.objects.first()
+
+  # print(restaurant.name)
+
+  # restaurant.name = "New Restaurant Name"
+
+  # restaurant.save(update_fields=['name'])
+
+  # print(connection.queries)
   
-  user = User.objects.first()
-  restaurant = Restaurant.objects.first()
-  # Rating.objects.create(user=user,restaurant=restaurant,rating=9)
-  rating = Rating(user=user,restaurant=restaurant,rating=9)
-  rating.full_clean()
-  rating.save()
+  # user = User.objects.first()
+  # restaurant = Restaurant.objects.first()
+  # # Rating.objects.create(user=user,restaurant=restaurant,rating=9)
+  # rating = Rating(user=user,restaurant=restaurant,rating=9)
+  # rating.full_clean()
+  # rating.save()
   # rating, created = Rating.objects.get_or_create(
   #   restaurant = restaurant, 
   #   user=user,
